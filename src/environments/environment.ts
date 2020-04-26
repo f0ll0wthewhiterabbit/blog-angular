@@ -3,11 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from './interface'
-import { apiKey } from './apiKey'
+import { apiKey, firebaseDatabaseUrl } from './privateFields'
 
 export const environment: Environment = {
   production: false,
   apiKey,
+  firebaseDatabaseUrl,
 }
 
 /*
