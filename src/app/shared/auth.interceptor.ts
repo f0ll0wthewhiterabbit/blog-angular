@@ -10,7 +10,7 @@ import { Observable, throwError } from 'rxjs'
 import { Router } from '@angular/router'
 
 import { AuthService } from '../admin/shared/services/auth.service'
-import { catchError, tap } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -26,9 +26,6 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request).pipe(
-      tap(() => {
-        console.log('Intercept')
-      }),
       catchError((error: HttpErrorResponse) => {
         console.log('[Interceptor Error]: ', error)
         if (error.status === 401) {

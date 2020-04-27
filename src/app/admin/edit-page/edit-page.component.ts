@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs'
 
 import { PostsService } from 'src/app/shared/posts.service'
 import { Post } from 'src/app/shared/interfaces'
+import { AlertService } from '../shared/services/alert.service'
 
 @Component({
   selector: 'app-edit-page',
@@ -18,7 +19,11 @@ export class EditPageComponent implements OnInit, OnDestroy {
   submitted = false
   updateSubscription: Subscription
 
-  constructor(private route: ActivatedRoute, private postsService: PostsService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private postsService: PostsService,
+    private alert: AlertService
+  ) {}
 
   ngOnInit() {
     this.route.params
@@ -57,6 +62,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       })
       .subscribe(() => {
         this.submitted = false
+        this.alert.success('Пост был обновлен')
       })
   }
 }
