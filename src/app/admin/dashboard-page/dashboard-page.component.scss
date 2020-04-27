@@ -1,0 +1,15 @@
+.open {
+  margin-right: 10px;
+}
+
+.close {
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    color: #666;
+  }
+}
